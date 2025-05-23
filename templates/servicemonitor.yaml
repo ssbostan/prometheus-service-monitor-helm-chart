@@ -13,7 +13,9 @@ metadata:
     {{- toYaml . | nindent 4 }}
   {{- end }}
 spec:
-  jobLabel: {{ .jobLabel }}
+  {{- with .jobLabel }}
+  jobLabel: {{ . }}
+  {{- end }}
   {{- with .targetLabels }}
   targetLabels:
     {{- toYaml . | nindent 4 }}
